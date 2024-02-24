@@ -1,0 +1,19 @@
+version: "3"
+services:
+  mall-backend:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: mall-backend
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Asia/Shanghai # 你的时区
+    ports:
+      - "8101:8101"
+    stdin_open: true
+    tty: true
+    restart: always
+    volumes:
+      - ./:/var/www
+    command: ["/usr/local/bin/php", "/var/www/start.php", "start"]

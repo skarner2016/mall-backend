@@ -1,2 +1,2 @@
-# smail-backend
-smail-backend
+# mall-backend
+mall-backend
