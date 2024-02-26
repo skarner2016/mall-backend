@@ -13,7 +13,12 @@ services:
       - "8101:8101"
     stdin_open: true
     tty: true
+    networks:
+      - docker_local_host
     restart: always
     volumes:
       - ./:/var/www
     command: ["/usr/local/bin/php", "/var/www/start.php", "start"]
+networks:
+  docker_local_host:
+    external: true

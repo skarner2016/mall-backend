@@ -15,7 +15,14 @@
 use Webman\Route;
 
 
+// Route::any('/api/banners', [\app\api\controller\BannerController::class, 'index']);
 
 
 
+
+
+Route::group('/api', function () {
+    Route::resource('/banners', app\api\controller\BannerController::class, ['index']);
+    Route::resource('/categories', app\api\controller\CategoryController::class, ['index']);
+});
 

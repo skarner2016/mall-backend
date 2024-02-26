@@ -3,31 +3,31 @@
 namespace app\model;
 
 use support\Model;
+use Illuminate\Database\Eloquent\Casts\Attribute;
 
 /**
  *
  */
 class Banner extends BaseModel
 {
-    /**
-     * The connection name for the model.
-     *
-     * @var string|null
-     */
-    protected $connection = 'mysql';
-    
-    /**
-     * The table associated with the model.
-     *
-     * @var string
-     */
     protected $table = 'banners';
     
-    // TODO: 创建了 banner model , 写banner的接口
-    /**
-     * 1. banner
-     * 2. 品类(大类, 如食品)
-     * 3. 品类(小类, 如休闲零食/饼干糕点)
-     * 4. 商品
-     */
+    const STATUS_VALID   = 1;
+    const STATUS_INVALID = 2;
+    
+    protected function image(): Attribute
+    {
+        $imageUri = 'http://localhost:8080/images/banner/%s';
+        return Attribute::make(
+            get: fn ($value) => sprintf($imageUri, $value),
+        );
+    }
+    
+    protected function url(): Attribute
+    {
+        $jumpUri = 'http://localhost:8080/images/banner/%s';
+        return Attribute::make(
+            get: fn ($value) => sprintf($jumpUri, $value),
+        );
+    }
 }

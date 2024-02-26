@@ -10,10 +10,11 @@ COPY www.conf.ini /usr/local/etc/php-fpm.d/www.conf
 RUN apt-get update \
     && cp /usr/local/etc/php/php.ini-production /usr/local/etc/php/php.ini
 
-RUN docker-php-ext-install pcntl
+RUN docker-php-ext-install pcntl pdo pdo_mysql
 
 # 安装 git unzip (安装laravel需要)
 RUN apt install git unzip -y
+
 
 # 安装 composer
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer

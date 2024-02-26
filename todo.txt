@@ -1,0 +1,6 @@
+
+TODO: 创建了 banner model , 写banner的接口
+1. banner                           √
+2. 品类(大类, 如食品)                  √
+3. 品类(小类, 如休闲零食/饼干糕点)       √
+4. 商品(TODO)
