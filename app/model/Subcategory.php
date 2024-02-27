@@ -21,12 +21,13 @@ class Subcategory extends BaseModel
     
     protected function icon(): Attribute
     {
-        $imageUri = 'http://localhost:8080/images/icon/%s';
+        $ossDomain = env('OSS_DOMAIN');
+        $imageUri = '%s/banner/%s';
         return Attribute::make(
-            get: function ($value) use ($imageUri) {
+            get: function ($value) use ($imageUri, $ossDomain) {
                 $value = $value ?: 'default.png';
-                
-                return sprintf($imageUri, $value);
+        
+                return sprintf($imageUri, $ossDomain, $value);
             },
         );
     }

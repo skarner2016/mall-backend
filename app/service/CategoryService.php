@@ -22,18 +22,17 @@ class CategoryService
         foreach ($categories as $category) {
             $tmpList = [];
             foreach ($category->subcategories as $subCategory) {
-                $itemList = [];
+                $productList = [];
                 if ($firstTmpList) {
-                    // TODO: 获取推荐商品列表
-                    $itemList = [];
+                    $productList = (new ProductService())->getList($category->id, $subCategory->id, 20, 0);
                 }
                 $firstTmpList = false;
                 
                 $tmpList[] = [
-                    'id'        => $subCategory->id,
-                    'name'      => $subCategory->name,
-                    'icon'      => $subCategory->icon,
-                    'item_list' => $itemList,
+                    'id'           => $subCategory->id,
+                    'name'         => $subCategory->name,
+                    'icon'         => $subCategory->icon,
+                    'product_list' => $productList,
                 ];
             }
             
