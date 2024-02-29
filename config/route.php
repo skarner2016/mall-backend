@@ -15,6 +15,12 @@
 use Webman\Route;
 
 Route::group('/api', function () {
+    //
+    Route::get('/common/code', [\app\api\controller\CommonController::class, 'code']);
+    
+    Route::resource('/users', app\api\controller\UserController::class, ['store']);
+    
+    // product
     Route::resource('/banners', app\api\controller\BannerController::class, ['index']);
     Route::resource('/categories', app\api\controller\CategoryController::class, ['index']);
     Route::resource('/products', app\api\controller\ProductController::class, ['index', 'show']);

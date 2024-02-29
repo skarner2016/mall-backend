@@ -1,13 +1,13 @@
 <?php
 
-namespace app\service;
+namespace app\service\Product;
 
-use app\model\Category;
-use app\model\Subcategory;
+use app\model\product\Category;
+use app\model\product\Subcategory;
 
 class CategoryService
 {
-    public function getCategoryList()
+    public function getCategoryList(): array
     {
         $categoryList = [];
         $categories   = Category::query()

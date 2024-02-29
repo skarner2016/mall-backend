@@ -160,6 +160,23 @@ CREATE TABLE `subcategories` (
 
 SET FOREIGN_KEY_CHECKS = 1;
 
+-- ----------------------------
+-- Table structure for users
+-- ----------------------------
+DROP TABLE IF EXISTS `users`;
+CREATE TABLE `users` (
+                         `id` int unsigned NOT NULL AUTO_INCREMENT,
+                         `area_code` int unsigned NOT NULL DEFAULT '86',
+                         `mobile` bigint unsigned DEFAULT NULL,
+                         `email` varchar(255) DEFAULT NULL,
+                         `status` tinyint unsigned NOT NULL DEFAULT '1',
+                         `insert_time` datetime NOT NULL,
+                         `update_time` datetime NOT NULL,
+                         PRIMARY KEY (`id`),
+                         UNIQUE KEY `unique_mobile` (`area_code`,`mobile`),
+                         UNIQUE KEY `unique_email` (`email`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
 
 
 
@@ -232,12 +249,12 @@ INSERT INTO `mall`.`product_attribute_values` (`id`, `attribute_id`, `attribute_
 INSERT INTO `mall`.`product_attribute_values` (`id`, `attribute_id`, `attribute_name`, `status`, `sort`, `insert_time`, `update_time`) VALUES (7, 2, '512GB', 1, 1, '2024-02-26 17:12:23', '2024-02-26 17:12:23');
 
 -- product_skus
-INSERT INTO `mall`.`product_skus` (`id`, `product_id`, `attribute`, `price`, `stock`, `status`, `insert_time`, `update_time`) VALUES (1, 1, '{"颜色":"黑色","存储容量":"128GB"}', 2999.99, 1, 1, '2024-02-26 17:12:23', '2024-02-26 17:12:23');
-INSERT INTO `mall`.`product_skus` (`id`, `product_id`, `attribute`, `price`, `stock`, `status`, `insert_time`, `update_time`) VALUES (2, 1, '{"颜色":"黑色","存储容量":"256GB"}', 3199.99, 1, 1, '2024-02-26 17:12:23', '2024-02-26 17:12:23');
-INSERT INTO `mall`.`product_skus` (`id`, `product_id`, `attribute`, `price`, `stock`, `status`, `insert_time`, `update_time`) VALUES (3, 1, '{"颜色":"黑色","存储容量":"512GB"}', 3899.99, 1, 1, '2024-02-26 17:12:23', '2024-02-26 17:12:23');
-INSERT INTO `mall`.`product_skus` (`id`, `product_id`, `attribute`, `price`, `stock`, `status`, `insert_time`, `update_time`) VALUES (4, 1, '{"颜色":"白色","存储容量":"128GB"}', 3399.99, 1, 1, '2024-02-26 17:12:23', '2024-02-26 17:12:23');
-INSERT INTO `mall`.`product_skus` (`id`, `product_id`, `attribute`, `price`, `stock`, `status`, `insert_time`, `update_time`) VALUES (5, 1, '{"颜色":"白色","存储容量":"256GB"}', 3499.99, 1, 1, '2024-02-26 17:12:23', '2024-02-26 17:12:23');
-INSERT INTO `mall`.`product_skus` (`id`, `product_id`, `attribute`, `price`, `stock`, `status`, `insert_time`, `update_time`) VALUES (6, 1, '{"颜色":"白色","存储容量":"512GB"}', 3799.99, 1, 1, '2024-02-26 17:12:23', '2024-02-26 17:12:23');
-INSERT INTO `mall`.`product_skus` (`id`, `product_id`, `attribute`, `price`, `stock`, `status`, `insert_time`, `update_time`) VALUES (7, 1, '{"颜色":"蓝色","存储容量":"512GB"}', 3999.99, 1, 1, '2024-02-26 17:12:23', '2024-02-26 17:12:23');
-INSERT INTO `mall`.`product_skus` (`id`, `product_id`, `attribute`, `price`, `stock`, `status`, `insert_time`, `update_time`) VALUES (8, 1, '{"颜色":"粉色","存储容量":"256GB"}', 3599.99, 1, 1, '2024-02-26 17:12:23', '2024-02-26 17:12:23');
+INSERT INTO `mall`.`product_skus` (`id`, `product_id`, `attribute`, `price`, `stock`, `status`, `insert_time`, `update_time`) VALUES (1, 1, '1:1_2:5', 2999.99, 1, 1, '2024-02-26 17:12:23', '2024-02-26 17:12:23');
+INSERT INTO `mall`.`product_skus` (`id`, `product_id`, `attribute`, `price`, `stock`, `status`, `insert_time`, `update_time`) VALUES (2, 1, '1:1_2:6', 3199.99, 2, 1, '2024-02-26 17:12:23', '2024-02-26 17:12:23');
+INSERT INTO `mall`.`product_skus` (`id`, `product_id`, `attribute`, `price`, `stock`, `status`, `insert_time`, `update_time`) VALUES (3, 1, '1:1_2:7', 3899.99, 3, 1, '2024-02-26 17:12:23', '2024-02-26 17:12:23');
+INSERT INTO `mall`.`product_skus` (`id`, `product_id`, `attribute`, `price`, `stock`, `status`, `insert_time`, `update_time`) VALUES (4, 1, '1:2_2:5', 3399.99, 4, 1, '2024-02-26 17:12:23', '2024-02-26 17:12:23');
+INSERT INTO `mall`.`product_skus` (`id`, `product_id`, `attribute`, `price`, `stock`, `status`, `insert_time`, `update_time`) VALUES (5, 1, '1:2_2:6', 3499.99, 5, 1, '2024-02-26 17:12:23', '2024-02-26 17:12:23');
+INSERT INTO `mall`.`product_skus` (`id`, `product_id`, `attribute`, `price`, `stock`, `status`, `insert_time`, `update_time`) VALUES (6, 1, '1:2_2:7', 3799.99, 6, 1, '2024-02-26 17:12:23', '2024-02-26 17:12:23');
+INSERT INTO `mall`.`product_skus` (`id`, `product_id`, `attribute`, `price`, `stock`, `status`, `insert_time`, `update_time`) VALUES (7, 1, '1:3_2:1', 3999.99, 7, 1, '2024-02-26 17:12:23', '2024-02-26 17:12:23');
+INSERT INTO `mall`.`product_skus` (`id`, `product_id`, `attribute`, `price`, `stock`, `status`, `insert_time`, `update_time`) VALUES (8, 1, '1:4_2:1', 3599.99, 8, 1, '2024-02-26 17:12:23', '2024-02-26 17:12:23');
 

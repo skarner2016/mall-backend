@@ -3,7 +3,7 @@
 namespace app\api\controller;
 
 use support\Request;
-use app\service\CategoryService;
+use app\service\Product\CategoryService;
 
 class CategoryController extends ApiController
 {

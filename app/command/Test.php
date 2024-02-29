@@ -2,14 +2,10 @@
 
 namespace app\command;
 
-use support\Db;
-use app\model\Banner;
-use app\model\Category;
-use app\model\Subcategory;
+use support\Redis;
 use Symfony\Component\Console\Command\Command;
-use Symfony\Component\Console\Input\InputInterface;
-use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Input\InputArgument;
+use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 
 
@@ -33,6 +29,10 @@ class Test extends Command
      */
     protected function execute(InputInterface $input, OutputInterface $output): int
     {
+        // $res = Redis::set('abc', 123);
+        $res = Redis::get('abc');
+        
+        dd(!isset($res) ? '$res === null' : $res);
         $name = $input->getArgument('name');
         $output->writeln('Hello Test');
         return self::SUCCESS;

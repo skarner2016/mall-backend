@@ -1,13 +1,13 @@
 <?php
 
-namespace app\service;
+namespace app\service\Product;
 
-use app\model\ProductAttribute;
-use app\model\ProductAttributeValue;
+use app\model\product\ProductAttribute;
+use app\model\product\ProductAttributeValue;
 
 class ProductAttributeService
 {
-    public function getAttribute($productId)
+    public function getAttributes($productId): array
     {
         $productAttributes = ProductAttribute::query()
             ->with(['productAttributeValues' => function ($query) {
@@ -23,13 +23,14 @@ class ProductAttributeService
             $items = [];
             foreach ($productAttribute->productAttributeValues as $productAttributeValue) {
                 $items[] = [
+                    'attribute_id'   => $productAttributeValue->id,
                     'attribute_name' => $productAttributeValue->attribute_name,
                 ];
             }
             
             $list[] = [
-                'id' => $productAttribute->id,
-                'name' => $productAttribute->name,
+                'id'    => $productAttribute->id,
+                'name'  => $productAttribute->name,
                 'items' => $items,
             ];
         }

@@ -1,7 +1,8 @@
 <?php
 
-namespace app\model;
+namespace app\model\product;
 
+use app\model\BaseModel;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class ProductAttribute extends BaseModel

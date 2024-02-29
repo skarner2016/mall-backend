@@ -12,6 +12,9 @@ RUN apt-get update \
 
 RUN docker-php-ext-install pcntl pdo pdo_mysql
 
+RUN pecl install redis \
+    && docker-php-ext-enable redis
+
 # 安装 git unzip (安装laravel需要)
 RUN apt install git unzip -y
 

@@ -3,8 +3,9 @@
 namespace app\api\controller;
 
 use support\Request;
-use app\service\ProductService;
-use app\service\ProductAttributeService;
+use app\service\Product\ProductService;
+use app\service\Product\ProductSkuService;
+use app\service\Product\ProductAttributeService;
 
 class ProductController extends ApiController
 {
@@ -25,12 +26,13 @@ class ProductController extends ApiController
         $productId = $request->get('product_id', 1);
         
         $product    = (new ProductService())->getProductDetail($productId);
-        $attributes = (new ProductAttributeService())->getAttribute($productId);
+        $attributes = (new ProductAttributeService())->getAttributes($productId);
+        $skus       = (new ProductSkuService())->getSku($productId);
         
         $list = [
             'product'    => $product,
             'attributes' => $attributes,
-            'sku'        => [], // TODO: 库存量如何返回?
+            'sku'        => $skus,
         ];
         
         return $this->success($list);

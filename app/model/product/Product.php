@@ -1,9 +1,10 @@
 <?php
 
-namespace app\model;
+namespace app\model\product;
 
-use support\Model;
+use app\model\BaseModel;
 use Illuminate\Database\Eloquent\Casts\Attribute;
+use function env;
 
 class Product extends BaseModel
 {

@@ -1,8 +1,8 @@
 <?php
 
-namespace app\model;
+namespace app\model\product;
 
-use support\Model;
+use app\model\BaseModel;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 
 /**

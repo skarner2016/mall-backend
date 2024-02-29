@@ -1,12 +1,12 @@
 <?php
 
-namespace app\service;
+namespace app\service\Product;
 
-use app\model\Product;
+use app\model\product\Product;
 
 class ProductService
 {
-    public function getList($categoryId, $subcategoryId, $limit, $sortId)
+    public function getList($categoryId, $subcategoryId, $limit, $sortId): array
     {
         $list     = [];
         $products = Product::query()
@@ -32,9 +32,11 @@ class ProductService
         return $list;
     }
     
-    public function getProductDetail($productId)
+    public function getProductDetail($productId): array
     {
-        $product = Product::query()->find($productId);
+        if (!$product = Product::query()->find($productId)) {
+            return [];
+        }
         
         return [
             'id'           => $product->id,

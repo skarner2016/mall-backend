@@ -17,14 +17,13 @@ return [
     'default' => 'mysql',
     // 各种数据库配置
     'connections' => [
-        
         'mysql' => [
             'driver'      => 'mysql',
-            'host'        => 'mysql',
-            'port'        => 3306,
-            'database'    => 'mall',
-            'username'    => 'root',
-            'password'    => '123456',
+            'host'        => env('DB_MYSQL_HOST'),
+            'port'        => env('DB_MYSQL_PORT'),
+            'database'    => env('DB_MYSQL_DATABASE'),
+            'username'    => env('DB_MYSQL_USERNAME'),
+            'password'    => env('DB_MYSQL_PASSWORD'),
             'unix_socket' => '',
             'charset'     => 'utf8mb4',
             'collation'   => 'utf8mb4_0900_ai_ci',

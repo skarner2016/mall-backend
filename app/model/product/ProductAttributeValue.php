@@ -1,6 +1,8 @@
 <?php
 
-namespace app\model;
+namespace app\model\product;
+
+use app\model\BaseModel;
 
 class ProductAttributeValue extends BaseModel
 {
