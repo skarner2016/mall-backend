@@ -24,7 +24,7 @@ class Subcategory extends BaseModel
     
     protected function icon(): Attribute
     {
-        $ossDomain = env('OSS_DOMAIN');
+        $ossDomain = getenv('OSS_DOMAIN');
         $imageUri  = '%s/banner/%s';
         
         return Attribute::make(

@@ -17,7 +17,7 @@ class Banner extends BaseModel
     
     protected function image(): Attribute
     {
-        $ossDomain = env('OSS_DOMAIN');
+        $ossDomain = getenv('OSS_DOMAIN');
         $imageUri = '%s/banner/%s';
         return Attribute::make(
             get: fn ($value) => sprintf($imageUri, $ossDomain, $value),
@@ -26,7 +26,7 @@ class Banner extends BaseModel
     
     protected function url(): Attribute
     {
-        $ossDomain = env('APP_DOMAIN');
+        $ossDomain = getenv('APP_DOMAIN');
         $imageUri = '%s/product/%s';
         return Attribute::make(
             get: fn ($value) => sprintf($imageUri, $ossDomain, $value),

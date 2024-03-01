@@ -31,4 +31,17 @@ trait ApiResponse
             'data'    => (object)[],
         ]);
     }
+    
+    public function failWithMsg($code = ErrorCode::ERROR, $message = "", $parameters = []): Response
+    {
+        if ("" == $message) {
+            $message = trans($code, $parameters, 'error');
+        }
+        
+        return json([
+            'code'    => $code,
+            'message' => $message,
+            'data'    => (object)[],
+        ]);
+    }
 }

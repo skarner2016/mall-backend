@@ -526,3 +526,8 @@ function input(string $param = null, $default = null)
 {
     return is_null($param) ? request()->all() : request()->input($param, $default);
 }
+
+function throwApiException(int $errorCode, string $errorMessage = "")
+{
+    throw new \app\exception\ApiException($errorMessage, $errorCode);
+}

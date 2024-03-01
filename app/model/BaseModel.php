@@ -4,6 +4,7 @@ namespace app\model;
 
 
 use support\Model;
+use app\constant\App;
 
 class BaseModel extends Model
 {
@@ -12,7 +13,7 @@ class BaseModel extends Model
      *
      * @var string|null
      */
-    protected $connection = 'mysql';
+    protected $connection = App::MYSQL_DEFAULT;
     
     /**
      * The table associated with the model.

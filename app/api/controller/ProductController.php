@@ -3,13 +3,14 @@
 namespace app\api\controller;
 
 use support\Request;
+use support\Response;
 use app\service\Product\ProductService;
 use app\service\Product\ProductSkuService;
 use app\service\Product\ProductAttributeService;
 
 class ProductController extends ApiController
 {
-    public function index(Request $request)
+    public function index(Request $request): Response
     {
         $categoryId    = $request->get('category_id', 1);
         $subcategoryId = $request->get('subcategory_id', 1);
@@ -21,7 +22,7 @@ class ProductController extends ApiController
         return $this->success($productList);
     }
     
-    public function show(Request $request)
+    public function show(Request $request): Response
     {
         $productId = $request->get('product_id', 1);
         

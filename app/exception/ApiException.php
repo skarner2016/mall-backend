@@ -13,8 +13,9 @@ class ApiException extends BusinessException
     
     public function render(Request $request): ?Response
     {
-        $code = $this->getCode();
+        $code    = $this->getCode();
+        $message = $this->getMessage();
         
-        return $this->fail($code);
+        return $this->failWithMsg($code, $message);
     }
 }

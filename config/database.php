@@ -19,11 +19,11 @@ return [
     'connections' => [
         'mysql' => [
             'driver'      => 'mysql',
-            'host'        => env('DB_MYSQL_HOST'),
-            'port'        => env('DB_MYSQL_PORT'),
-            'database'    => env('DB_MYSQL_DATABASE'),
-            'username'    => env('DB_MYSQL_USERNAME'),
-            'password'    => env('DB_MYSQL_PASSWORD'),
+            'host'        => getenv('DB_MYSQL_HOST'),
+            'port'        => getenv('DB_MYSQL_PORT'),
+            'database'    => getenv('DB_MYSQL_DATABASE'),
+            'username'    => getenv('DB_MYSQL_USERNAME'),
+            'password'    => getenv('DB_MYSQL_PASSWORD'),
             'unix_socket' => '',
             'charset'     => 'utf8mb4',
             'collation'   => 'utf8mb4_0900_ai_ci',
